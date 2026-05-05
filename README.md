@@ -27,12 +27,12 @@ Standard FP-Growth mines all frequent patterns from data - but accepts every pat
 |--------|-------|------|------------|
 | Standard | 338 | 2.46s |  0% |
 | Baseline | 348 | 6.53s | 96.8% |
-| **Ours** | **85** | **4.09s** |  75.8% |
+| **Adapted ** | **85** | **4.09s** |  75.8% |
 
 **What this proves:**
-- Our method filters out 75% of rules (338 → 85) that standard keeps
-- Our method is 40% faster than baseline with meaningful validation
-- Yes, we are slower than standard - that's the **cost of validation**
+- Adapted method filters out 75% of rules (338 → 85) that standard keeps
+- Adapted method is 40% faster than baseline with meaningful validation
+- Adapted are slower than standard - that's the **cost of validation**
 
 
 **Bottom line:** Standard = fast but no trust. Baseline = trust but slow. **Ours = trustworthy + fast enough for daily business.**
