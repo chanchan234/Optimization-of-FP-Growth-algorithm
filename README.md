@@ -1,7 +1,6 @@
 # Optimization-of-FP-Growth-algorithm
  **The Gap** : Frequency ≠ Reliability
-
-* FP-Growth efficiently identifies frequent patterns. However, frequency alone does not guarantee stability. A pattern that appears often in one dataset may: *
+FP-Growth efficiently identifies frequent patterns. However, frequency alone does not guarantee stability. A pattern that appears often in one dataset may: 
 
 - Occur by chance in the sample
 - Not generalize to new data
