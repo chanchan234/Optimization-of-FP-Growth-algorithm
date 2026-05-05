@@ -10,10 +10,10 @@ Standard FP-Growth mines all frequent patterns from data - but accepts every pat
    
 ## The Optimising strategy : Use parallel processing to minimise the trade off of lower speed
 
-Optimization Attempt 1: Multi-Fold Cross-Validation (Baseline)
-The idea: Split data into multiple folds, run FP-Growth on each fold, keep only patterns that appear consistently across folds.
+**Optimization Attempt 1: Multi-Fold Cross-Validation (Baseline)
+The idea: Split data into multiple folds, run FP-Growth on each fold, keep only patterns that appear consistently across folds.**
 
-**Note:** While cross-validation is standard in machine learning, its application to FP-Growth pattern validation has not been previously formalized. I implement it here as our baseline validation method.
+**Note:** While cross-validation is standard in machine learning, its application to FP-Growth pattern validation has not been previously formalized. I implemented it here as our baseline validation method.
 
 Optimization Attempt 2: Random Forest-Inspired Ensemble (Adapted Method)
 Insights: the sampling of data is expected to increase the speed of the process 
