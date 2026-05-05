@@ -59,8 +59,9 @@ Before running, ensure these files are in your working directory:
 - `fp_parallel_main.py` - Main ensemble method
 - `fp_growth_baseline.py` - Baseline comparison method
 - `fp_growth_normal.py` - Baseline comparison method
-- `online_retail_cleaned.csv` - Preprocessed dataset (included)
-- `requirements.txt` - Python dependencies
+-  `requirements.txt` - Python dependencies
+- `online_retail_cleaned.csv` - Preprocessed dataset (included in the master branch)
+
 
 
 ### Step-by-Step Execution
