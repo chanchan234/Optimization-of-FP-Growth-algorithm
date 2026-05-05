@@ -35,7 +35,7 @@ Standard FP-Growth mines all frequent patterns from data - but accepts every pat
 - Adapted are slower than standard - that's the **cost of validation**
 
 
-**Bottom line:** Standard = fast but no trust. Baseline = trust but slow. **Ours = trustworthy + fast enough for daily business.**
+**Bottom line:** Standard = fast but no trust. Baseline = trust but slow. **Adapted  = trustworthy + fast enough for daily business.**
 
 
 **The full result will be on result.md**
@@ -65,7 +65,7 @@ python3 -m venv fp_env && source fp_env/bin/activate
 pip install -r requirements.txt
 ```
 
-**Update data path** in both `.py` files:
+###**Update data path** in both `.py` files:
 python
 DATA_PATH = "/path/to/online_retail_cleaned.csv"
 
@@ -89,5 +89,5 @@ RF_CONFIG = {
 }
 ```
 # Technical details for parallel processing 
-Remarks: the chunking of data using  Python for parallel processing will not increase the speed due to  heavy lifting property of Python . Therefore, parallel execution is  not used for standard FP growth but can support the baseline and adapted method . 
+The chunking of data using  Python for parallel processing will not increase the speed due to  heavy lifting property of Python . Therefore, parallel execution is  not used for standard FP growth but can support the baseline and adapted method . 
 
