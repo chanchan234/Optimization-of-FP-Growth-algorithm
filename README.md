@@ -41,7 +41,7 @@ FP-Growth efficiently identifies frequent patterns. However, frequency alone doe
 
 **Bottom line:** Adapted method gives you validated rules at practical speed
 
--
+
 
 
 **The full result will be on result.md**
