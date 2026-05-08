@@ -122,7 +122,7 @@ python fp_stardard_cv.py \
     --min_item_support 0.002 \
     --support_thresholds 0.005 0.01 0.015 0.02 \
 ```
-### for custom parameters for the RF-FP growth  
+### For custom parameters for the RF-FP growth  
 ```
 python fp_parallel.py \
     --data_path "/mnt/c/Users/85295/online_retail_cleaned.csv" \
