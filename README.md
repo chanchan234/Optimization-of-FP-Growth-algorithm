@@ -96,9 +96,8 @@ RF-FP-Growth is proven effective after optimization while cross validated method
 
 ### Required Files
 Before running, ensure these files are in your working directory:
-- `fp_parallel_main.py` - Main ensemble method
-- `fp_growth_baseline.py` - Baseline comparison method
-- `fp_growth_normal.py` - Baseline comparison method
+- `fp_parallel.py` - Main ensemble method
+- `fp_stardard_cv` - Comparsion of the cross validated and standard method 
 -  `requirements.txt` - Python dependencies
 - `online_retail_cleaned.csv` - Preprocessed dataset (included in the master branch)
 
@@ -113,12 +112,12 @@ pip install -r requirements.txt
 ```
 
 ```Run file with bash 
-python fp_efficiency.py --data_path "/mnt/your_path/online_retail_cleaned.csv"
+python fp_standard_cv.py --data_path "/mnt/your_path/online_retail_cleaned.csv"
 python fp_parallel.py --data_path "/mnt/your_path/online_retail_cleaned.csv"
 ```
 ### For custom parameters for the standard and the cross validated method
 ```
-python fp_efficiency.py \
+python fp_stardard_cv.py \
     --data_path "/mnt/c/Users/85295/online_retail_cleaned.csv" \
     --min_item_support 0.002 \
     --support_thresholds 0.005 0.01 0.015 0.02 \
