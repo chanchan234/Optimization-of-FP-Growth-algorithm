@@ -7,7 +7,7 @@
 | Method | Accuracy | Rules | Time |
 |--------|----------|-------|------|
 | Standard FP-Growth | 75.74% | 3,801 | 6.63s |
-| **RF-FP-Growth (Ours)** | **91.23%** | **187** | **9.26s** |
+| **RF-FP-Growth (optimized)** | **91.23%** | **187** | **9.26s** |
 
 > **Bottom Line:** More accurate, cleaner results, slightly slower (40%). Worth the trade-off.
 
