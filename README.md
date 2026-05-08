@@ -80,9 +80,13 @@ Use parallel processing to minimize the speed trade-off of ensemble methods.
 | 0.020 | 60.39% | -5% |  Standard wins |
 
 > **Key Insight:** RF-FP-Growth's advantage is **support-specific**. It only achieves superior accuracy at `min_support=0.005`. At higher supports, standard FP-Growth performs better.
+ ##  Conclusion
+RF-FP-Growth is proven effective after optimization while cross validated method is not worth it.
 
-**📁 More detailed results  available in `full_results.md`**
+**📁 More detailed results  available in `result.md`**
+
 ## Code Running Instructions
+
 
 ### Environment Requirements
 - **Operating System**: Linux (Ubuntu/Debian) or WSL on Windows
