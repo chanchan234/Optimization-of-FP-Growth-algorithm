@@ -112,28 +112,25 @@ python3 -m venv fp_env && source fp_env/bin/activate
 pip install -r requirements.txt
 ```
 
-###**Update data path** in both `.py` files:
-python
-DATA_PATH = "/path/to/online_retail_cleaned.csv"
-
-
-**Run:**
-```bash
-python fp_parallel_main.py      # Main ensemble method
-python baseline_fp_growth.py   # Baseline comparison
-python normal_fp_growth.py    # standard fp growth
+```Run file with bash 
+python fp_efficiency.py --data_path "/mnt/your_path/online_retail_cleaned.csv"
+python fp_parallel.py --data_path "/mnt/your_path/online_retail_cleaned.csv"
 ```
+# for custom parameters for the standard and the cross validated method(only add when needed to change )
+python fp_efficiency.py \
+    --data_path "/mnt/c/Users/85295/online_retail_cleaned.csv" \
+    --min_item_support 0.002 \
+    --support_thresholds 0.005 0.01 0.015 0.02 \
 
-## Configuration
-
-**Ensemble params** (`fp_parallel_main.py`):
-```python
-RF_CONFIG = {
-    'n_trees': 3,
-    'sample_ratio': 0.7,
-    'feature_ratio': 0.6,
-    'random_seed': 12345   
-}
+# for custom parameters for the RF-FP growth (only add when needed to change)  
+python fp_parallel.py \
+    --data_path "/mnt/c/Users/85295/online_retail_cleaned.csv" \
+    --min_item_support 0.002 \
+    --fp_min_support_values 0.005 0.01 0.015 0.02 \
+    --n_trees 3 \
+    --sample_ratio 0.7 \
+    --feature_ratio 0.6 \
+    --min_tree_votes 2
 ```
 # Technical details for parallel processing 
 The chunking of data using  Python for parallel processing will not increase the speed due to  heavy lifting property of Python . Therefore, parallel execution is  not used for standard FP growth but can support the baseline and adapted method . 
