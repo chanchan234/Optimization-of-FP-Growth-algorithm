@@ -1,51 +1,87 @@
 # Optimization-of-FP-Growth-algorithm
- **The Gap** : Frequency ≠ Reliability
+
+##  Key Result
+
+**Random Forest FP-Growth achieves 91.23% prediction accuracy** — a **+15.5% improvement** over standard FP-Growth (75.74%), while producing **95% fewer rules** (187 vs 3,801).
+
+| Method | Accuracy | Rules | Time |
+|--------|----------|-------|------|
+| Standard FP-Growth | 75.74% | 3,801 | 6.63s |
+| **RF-FP-Growth (Ours)** | **91.23%** | **187** | **9.26s** |
+
+> **Bottom Line:** More accurate, cleaner results, slightly slower (40%). Worth the trade-off.
 
 
- 
-FP-Growth efficiently identifies frequent patterns. However, frequency alone does not guarantee stability. A pattern that appears often in one dataset may: 
+ ## The Gap: Frequency ≠ Reliability
 
-
-
+FP-Growth efficiently identifies frequent patterns. However, frequency alone does not guarantee stability. A pattern that appears often in one dataset may:
 - Occur by chance in the sample
 - Not generalize to new data
 - Lead to incorrect business decisions if trusted blindly
 
+
+
+---
+## Accuracy Validation Method
+To evaluate rule quality, we use hold-out accuracy - a standard evaluation protocol in association rule mining 
+
+**Protocol:**
+1. Split Data: 80% training / 20% test (unseen data)
+
+2. Discover Rules: Run FP-Growth on training set only
+
+3. Test Predictions: Apply rules to test transactions
+
+4. Calculate Accuracy: Correct Predictions / Total Predictions
    
-## The Optimising strategy : Use parallel processing to minimise the trade off of lower speed
+## Optimization Strategy: Parallel Processing
+
+Use parallel processing to minimize the speed trade-off of ensemble methods.
+
 
 ## Optimization Attempt 1: Multi-Fold Cross-Validation (Baseline)
 
 **Idea:** Split data into folds → run FP-Growth on each fold → keep patterns that appear consistently across folds.
 
-**Note:** Cross-validation is standard in ML, but its application to FP-Growth pattern validation has not been previously formalized. 
-
-## Optimization Attempt 2: Random Forest-Inspired Ensemble (Adapted Method)
-
-**Insight:** Data sampling increases processing speed.
-
-**Idea:** Bootstrap samples (3 trees) → parallel FP-Growth → ensemble voting (keep patterns with cross-tree agreement)
-## Key Results (at min_support=0.010)
-
-| Method | Rules | Time | Validation |
-|--------|-------|------|------------|
-| Standard | 338 | 2.46s |  0% |
-| Baseline | 348 | 6.53s | 96.8% |
-| **Adapted ** | **85** | **4.09s** |  75.8% |
-
-**What this proves:**
-- Adapted method filters out 75% of rules (338 → 85) that standard keeps
-- Adapted method is 40% faster than baseline with meaningful validation
-- Adapted are slower than standard - that's the **cost of validation**
 
 
-**Bottom line:** Adapted method gives you validated rules at practical speed
+## Optimization Attempt 2: Random Forest-Inspired Ensemble (Proposed)
+
+**Idea:** 
+- 3 bootstrap samples (different transactions + features per tree)
+- Parallel FP-Growth on each tree
+- Ensemble voting: keep patterns with ≥2 votes
+
+---
+
+## 📊 Results (Tested at min_support = 0.005, 0.010, 0.015, 0.020)
+
+### Best Performance: min_support = 0.005
+
+| Method | Accuracy | Patterns | Rules | Time (s) |
+|--------|----------|----------|-------|----------|
+| Standard FP-Growth | 75.74% | 4,400 | 3,801 | 6.63 |
+| CV-FP-Growth | 78.02% | 4,424 | 3,853 | 12.42 |
+| **RF-FP-Growth (Adpapted)** | **91.23%** | **1,302** | **187** | **9.26** |
+
+> **Key Finding:** RF FP-Growth achieves **91.23% accuracy** at `min_support=0.005` - a **+15.5% improvement** over standard FP-Growth. 
 
 
 
 
-**The full result will be on result.md**
 
+### Limitation: Support Sensitivity
+
+| min_support | RF-FP-Growth Accuracy | vs Standard | Verdict |
+|-------------|----------------------|-------------|---------|
+| **0.005** | **91.23%** | +15.5% | ✅ **RF wins** |
+| 0.010 | 72.01% | -3% |  Standard wins |
+| 0.015 | 56.33% | -14% |  Standard wins |
+| 0.020 | 60.39% | -5% |  Standard wins |
+
+> **Key Insight:** RF-FP-Growth's advantage is **support-specific**. It only achieves superior accuracy at `min_support=0.005`. At higher supports, standard FP-Growth performs better.
+
+**📁 More detailed results  available in `full_results.md`**
 ## Code Running Instructions
 
 ### Environment Requirements
