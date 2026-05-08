@@ -1,10 +1,10 @@
-# Full Experimental Results
+
 ## Experimental Setup
 - **min_item_support (data filtering):** 0.002 (consistent across all methods)
 - **Train/Test Split:** 80% training / 20% test (hold-out validation)
 - **Random Seed:** 12345 (for reproducibility)
   
-  
+# Full Experimental Results  
 ## 1. Standard FP-Growth Results (Baseline)
 
 | min_support | Accuracy | Patterns | Rules | Time (s) |
