@@ -117,12 +117,14 @@ python fp_efficiency.py --data_path "/mnt/your_path/online_retail_cleaned.csv"
 python fp_parallel.py --data_path "/mnt/your_path/online_retail_cleaned.csv"
 ```
 ### For custom parameters for the standard and the cross validated method
+```
 python fp_efficiency.py \
     --data_path "/mnt/c/Users/85295/online_retail_cleaned.csv" \
     --min_item_support 0.002 \
     --support_thresholds 0.005 0.01 0.015 0.02 \
-
+```
 ### for custom parameters for the RF-FP growth  
+```
 python fp_parallel.py \
     --data_path "/mnt/c/Users/85295/online_retail_cleaned.csv" \
     --min_item_support 0.002 \
