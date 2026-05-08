@@ -7,7 +7,7 @@
 | Method | Accuracy | Rules | Time |
 |--------|----------|-------|------|
 | Standard FP-Growth | 75.74% | 3,801 | 6.63s |
-| **RF-FP-Growth (optimized)** | **91.23%** | **187** | **9.26s** |
+| **RF-FP-Growth (Adapted)** | **91.23%** | **187** | **9.26s** |
 
 > **Bottom Line:** More accurate, cleaner results, slightly slower (40%). Worth the trade-off.
 
@@ -62,7 +62,7 @@ Use parallel processing to minimize the speed trade-off of ensemble methods.
 |--------|----------|----------|-------|----------|
 | Standard FP-Growth | 75.74% | 4,400 | 3,801 | 6.63 |
 | CV-FP-Growth | 78.02% | 4,424 | 3,853 | 12.42 |
-| **RF-FP-Growth (Adpapted)** | **91.23%** | **1,302** | **187** | **9.26** |
+| **RF-FP-Growth (Adapted)** | **91.23%** | **1,302** | **187** | **9.26** |
 
 > **Key Finding:** RF FP-Growth achieves **91.23% accuracy** at `min_support=0.005` - a **+15.5% improvement** over standard FP-Growth. 
 
