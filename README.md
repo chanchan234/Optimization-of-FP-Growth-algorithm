@@ -70,7 +70,7 @@ Use parallel processing to minimize the speed trade-off of ensemble methods.
 
 
 
-### Limitation: Support Sensitivity
+###  Key Limitation: Support Sensitivity
 
 | min_support | RF-FP-Growth Accuracy | vs Standard | Verdict |
 |-------------|----------------------|-------------|---------|
@@ -80,9 +80,23 @@ Use parallel processing to minimize the speed trade-off of ensemble methods.
 | 0.020 | 60.39% | -5% |  Standard wins |
 
 > **Key Insight:** RF-FP-Growth's advantage is **support-specific**. It only achieves superior accuracy at `min_support=0.005`. At higher supports, standard FP-Growth performs better.
- ##  Conclusion
-RF-FP-Growth is proven effective after optimization while cross validated method is not worth it.
+### Additional Limitations
 
+| Limitation | Why It Matters |
+|:---|:---|
+| **Single dataset only** | Results on UCI Online Retail may not generalize to other domains (e.g., sparse clickstreams, dense supermarket baskets) |
+| **CV-FP-Growth tested only at supports ≥0.005** | Cross-validation may perform better at lower supports (<0.005) – not tested |
+| **No Apriori baseline** | Standard FP-Growth comparison only; Apriori may perform differently |
+| **No lift/conviction metrics** | Accuracy alone doesn't capture rule interestingness |
+
+## Conclusion
+
+Within the scope of this study (UCI Online Retail, `min_support ≥ 0.005`):
+- RF-FP-Growth wins at `min_support=0.005` (+15.5% accuracy, 95% fewer rules)
+- Standard FP-Growth wins at higher supports (0.010–0.020)
+- CV-FP-Growth showed no meaningful improvement
+
+**Generalization beyond this dataset requires future validation.**
 **📁 More detailed results  available in `result.md`**
 
 ## Code Running Instructions
@@ -134,7 +148,7 @@ python fp_rf_parallel.py \
     --min_tree_votes 2
 ```
 # Technical details for parallel processing 
-The chunking of data using  Python for parallel processing will not increase the speed of running standard fp growth . Therefore, parallel execution is  not used for standard FP growth but can support the baseline and adapted method . 
+RF-FP-Growth and cross vliadated method  uses `multiprocessing.Pool` to build all 3 FP-Growth trees simultaneously across CPU cores. However, standard fp growth tree can only support sequential execution.
 ## References
 
 Liu, G., Zhang, H., & Wong, L. (2011). Controlling false positives in association rule mining. *Proceedings of the VLDB Endowment*, *5*(2), 145–156. https://arxiv.org/abs/1110.6652
