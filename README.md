@@ -134,5 +134,5 @@ python fp_rf_parallel.py \
     --min_tree_votes 2
 ```
 # Technical details for parallel processing 
-The chunking of data using  Python for parallel processing will not increase the speed due to  heavy lifting property of Python . Therefore, parallel execution is  not used for standard FP growth but can support the baseline and adapted method . 
+The chunking of data using  Python for parallel processing will not increase the speed of running standard fp growth . Therefore, parallel execution is  not used for standard FP growth but can support the baseline and adapted method . 
 
