@@ -1,6 +1,10 @@
 # Optimization-of-FP-Growth-algorithm
 
-##  Key Result
+## Business Problem
+
+An e-commerce company uses FP-Growth to find product associations for recommendations. But "frequent" doesn't mean "reliable" – patterns that look good in historical data often fail on new customers, causing irrelevant recommendations and wasted marketing time.
+
+## Key Result
 
 **Random Forest FP-Growth achieves 91.23% prediction accuracy** — a **+15.5% improvement** over standard FP-Growth (75.74%), while producing **95% fewer rules** (187 vs 3,801).
 
@@ -9,15 +13,16 @@
 | Standard FP-Growth | 75.74% | 3,801 | 6.63s |
 | **RF-FP-Growth (Adapted)** | **91.23%** | **187** | **9.26s** |
 
-> **Bottom Line:** More accurate, cleaner results, slightly slower (40%). Worth the trade-off.
+> **Bottom Line:** More accurate recommendations, cleaner results for business teams to review, 40% slower – worth the trade-off for batch analytics.
 
+## The Gap: Frequency ≠ Reliability
 
- ## The Gap: Frequency ≠ Reliability
-
-FP-Growth efficiently identifies frequent patterns. However, frequency alone does not guarantee stability. A pattern that appears often in one dataset may:
+FP-Growth efficiently identifies frequent patterns. However, frequency alone does not guarantee reliability. A pattern that appears often in one dataset may:
 - Occur by chance in the sample
-- Not generalize to new data
-- Lead to incorrect business decisions if trusted blindly
+- Not generalize to new customer data
+- Lead to bad recommendations if trusted blindly
+
+**This project solves that gap.**
 
 
 
