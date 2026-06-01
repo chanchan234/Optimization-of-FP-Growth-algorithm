@@ -135,4 +135,9 @@ python fp_rf_parallel.py \
 ```
 # Technical details for parallel processing 
 The chunking of data using  Python for parallel processing will not increase the speed of running standard fp growth . Therefore, parallel execution is  not used for standard FP growth but can support the baseline and adapted method . 
+## References
+
+Liu, G., Zhang, H., & Wong, L. (2011). Controlling false positives in association rule mining. *Proceedings of the VLDB Endowment*, *5*(2), 145–156. https://arxiv.org/abs/1110.6652
+
+Scheffer, T. (2001). Finding association rules that trade support optimally against confidence. In *Proceedings of the 5th European Conference on Principles of Data Mining and Knowledge Discovery (PKDD)* (pp. 424–435). Springer. https://doi.org/10.1007/3-540-44794-6_34
 
