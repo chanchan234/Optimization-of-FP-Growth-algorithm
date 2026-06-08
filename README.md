@@ -24,21 +24,9 @@ FP-Growth efficiently identifies frequent patterns. However, frequency alone doe
 
 **This project solves that gap.**
 
-
-
 ---
-## Accuracy Validation Method
-To evaluate rule quality, we use hold-out accuracy - a standard evaluation protocol in association rule mining 
 
-**Protocol:**
-1. Split Data: 80% training / 20% test (unseen data)
-
-2. Discover Rules: Run FP-Growth on training set only
-
-3. Test Predictions: Apply rules to test transactions
-
-4. Calculate Accuracy: Correct Predictions / Total Predictions
-   
+  
 ## Optimization Strategy: Parallel Processing
 
 Use parallel processing to minimize the speed trade-off of ensemble methods.
@@ -58,7 +46,19 @@ Use parallel processing to minimize the speed trade-off of ensemble methods.
 - Ensemble voting: keep patterns with ≥2 votes
 
 ---
+---
+## Accuracy Validation Method
+To evaluate rule quality, we use hold-out accuracy - a standard evaluation protocol in association rule mining 
 
+**Protocol:**
+1. Split Data: 80% training / 20% test (unseen data)
+
+2. Discover Rules: Run FP-Growth on training set only
+
+3. Test Predictions: Apply rules to test transactions
+
+4. Calculate Accuracy: Correct Predictions / Total Predictions
+5. 
 ## 📊 Results (Tested at min_support = 0.005, 0.010, 0.015, 0.020)
 
 ### Best Performance: min_support = 0.005
