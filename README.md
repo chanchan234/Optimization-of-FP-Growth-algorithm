@@ -32,7 +32,7 @@ FP-Growth efficiently identifies frequent patterns. However, frequency alone doe
 Use parallel processing to minimize the speed trade-off of ensemble methods.
 
 
-## Optimization Attempt 1: Multi-Fold Cross-Validation (Baseline)
+## Optimization Attempt 1: Multi-Fold Cross-Validation 
 
 **Idea:** Split data into folds → run FP-Growth on each fold → keep patterns that appear consistently across folds.
 
