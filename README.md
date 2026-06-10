@@ -58,7 +58,7 @@ To evaluate rule quality, we use hold-out accuracy - a standard evaluation proto
 3. Test Predictions: Apply rules to test transactions
 
 4. Calculate Accuracy: Correct Predictions / Total Predictions
-5. 
+
 ## 📊 Results (Tested at min_support = 0.005, 0.010, 0.015, 0.020)
 
 ### Best Performance: min_support = 0.005
